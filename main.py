@@ -22,9 +22,9 @@ def download(file_url):
 def scheduler(file_url):
     while 1:
         download(file_url)
+        time.sleep(600)
         os.remove("10000mb.bin")
         print("File removed!")
-        time.sleep(600)
         # After download, sleep for five minutes then start again
 
 
