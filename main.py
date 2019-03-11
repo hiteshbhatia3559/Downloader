@@ -1,6 +1,7 @@
 import requests
 import time
 from multiprocessing import Process
+import os
 
 file_url = "http://speedtest-ny.turnkeyinternet.net/10000mb.bin"
 
@@ -21,6 +22,8 @@ def download(file_url):
 def scheduler(file_url):
     while 1:
         download(file_url)
+        os.remove("10000mb.bin")
+        print("File removed!")
         time.sleep(600)
         # After download, sleep for five minutes then start again
 
